@@ -1,0 +1,33 @@
+{
+  "name": "aws-transcription-to-srt",
+  "version": "1.0.0",
+  "description": "Convert AWS transcription JSON to srt",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TinyNova/aws-transcription-to-srt.git"
+  },
+  "keywords": [
+    "aws",
+    "transcribe",
+    "transcription",
+    "srt"
+  ],
+  "author": "Britton Mathews <britton.mathews@backit.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TinyNova/aws-transcription-to-srt/issues"
+  },
+  "homepage": "https://github.com/TinyNova/aws-transcription-to-srt#readme",
+  "dependencies": {
+    "async": "^2.6.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^4.0.2",
+    "gulp-mocha": "3.0.1"
+  }
+}

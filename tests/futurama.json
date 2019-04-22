@@ -1,0 +1,85 @@
+{
+    "jobName": "Futurama",
+    "accountId": "000000000000",
+    "results": {
+        "transcripts": [{
+            "transcript": "look at me. I'm doctor Zoidberg, homeowner."
+        }],
+        "items": [{
+            "start_time": "0.04",
+            "end_time": "0.55",
+            "alternatives": [{
+                "confidence": "1.0000",
+                "content": "look"
+            }],
+            "type": "pronunciation"
+        }, {
+            "start_time": "0.55",
+            "end_time": "0.73",
+            "alternatives": [{
+                "confidence": "1.0000",
+                "content": "at"
+            }],
+            "type": "pronunciation"
+        }, {
+            "start_time": "0.73",
+            "end_time": "1.42",
+            "alternatives": [{
+                "confidence": "1.0000",
+                "content": "me"
+            }],
+            "type": "pronunciation"
+        }, {
+            "alternatives": [{
+                "confidence": null,
+                "content": "."
+            }],
+            "type": "punctuation"
+        }, {
+            "start_time": "1.43",
+            "end_time": "1.73",
+            "alternatives": [{
+                "confidence": "1.0000",
+                "content": "I'm"
+            }],
+            "type": "pronunciation"
+        }, {
+            "start_time": "1.73",
+            "end_time": "2.31",
+            "alternatives": [{
+                "confidence": "0.5114",
+                "content": "doctor"
+            }],
+            "type": "pronunciation"
+        }, {
+            "start_time": "2.31",
+            "end_time": "3.51",
+            "alternatives": [{
+                "confidence": "0.2928",
+                "content": "Zoidberg"
+            }],
+            "type": "pronunciation"
+        }, {
+            "alternatives": [{
+                "confidence": null,
+                "content": ","
+            }],
+            "type": "punctuation"
+        }, {
+            "start_time": "3.52",
+            "end_time": "4.89",
+            "alternatives": [{
+                "confidence": "0.9259",
+                "content": "homeowner"
+            }],
+            "type": "pronunciation"
+        }, {
+            "alternatives": [{
+                "confidence": null,
+                "content": "."
+            }],
+            "type": "punctuation"
+        }]
+    },
+    "status": "COMPLETED"
+}
