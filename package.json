@@ -1,6 +1,6 @@
 {
   "name": "aws-transcription-to-srt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert AWS transcription JSON to srt",
   "main": "index.js",
   "scripts": {
