@@ -22,8 +22,10 @@ function convertToSrt(json) {
             if (nextItem) {
                 currentStart = json.results.items[index + 1].start_time;
             }
-        } else if (item.end_time - currentStart > 5) {
+        } else if (item.end_time - currentStart > 5 && json.results.items[index - 1]) {
             formattedStart = secondsToMinutes(currentStart);
+            console.log(json.results.items[index]);
+            console.log(json.results.items[index - 1]);
             formattedEnd = secondsToMinutes(json.results.items[index - 1].end_time);
             convertedOutput += `${subtitleIndex++}\n`;
             convertedOutput += formattedStart + ' --> ' + formattedEnd + '\n';
