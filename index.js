@@ -1,9 +1,13 @@
 const async = require('async');
 
 function convertToSrt(json) {
+    if (json.results.items.length === 0) {
+        return '';
+    }
+
     let convertedOutput = '';
     let subtitleIndex = 1;
-    let currentStart = json.results.items[0].start_time;
+    let currentStart = _.get(json, 'results.items[0].start_time');
     let formattedStart;
     let formattedEnd;
     let nextLine = '';
@@ -24,8 +28,6 @@ function convertToSrt(json) {
             }
         } else if (item.end_time - currentStart > 5 && json.results.items[index - 1]) {
             formattedStart = secondsToMinutes(currentStart);
-            console.log(json.results.items[index]);
-            console.log(json.results.items[index - 1]);
             formattedEnd = secondsToMinutes(json.results.items[index - 1].end_time);
             convertedOutput += `${subtitleIndex++}\n`;
             convertedOutput += formattedStart + ' --> ' + formattedEnd + '\n';
@@ -38,7 +40,7 @@ function convertToSrt(json) {
     });
 
     formattedStart = secondsToMinutes(currentStart);
-    if (json.results.items[json.results.items.length - 1].type !== 'punctuation') {
+    if (_.get(json, 'results.items[json.results.items.length - 1].type') !== 'punctuation') {
         formattedEnd = secondsToMinutes(json.results.items[json.results.items.length - 1].end_time);
     } else {
         formattedEnd = secondsToMinutes(json.results.items[json.results.items.length - 2].end_time);
