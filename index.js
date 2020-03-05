@@ -37,6 +37,7 @@ function convertToSrt(json) {
     let formattedStart;
     let formattedEnd;
     let nextLine = '';
+    let previousEndTime;
 
     async.eachOf(json.results.items, function(item, index) {
         if (item.type === 'punctuation') {
