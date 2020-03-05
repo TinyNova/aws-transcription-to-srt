@@ -1,11 +1,29 @@
 const async = require('async');
 
 function getPreviousEndTime(json, index) {
-    do
-		index--;
-    while(json.results.items[index].end_time == undefined);
-	
-    return json.results.items[index].end_time;
+    const maxLookBehind = 3;
+    let stopAt;
+    let i;
+    let returnTime = undefined;
+    
+    if(index < maxLookBehind)
+        stopAt = 0;
+    else
+        stopAt = index - maxLookBehind;
+        
+    for(i = index; i > stopAt; i--) {
+        if(json.results.items[i].end_time == undefined)
+            continue;
+        else
+            returnTime = json.results.items[i].end_time;
+            break;
+    }
+
+    if(returnTime == undefined) {
+            throw('Could not find a usable previous timestamp! The transcription JSON may be corrupted.');
+    }
+    
+    return returnTime;
 }
 
 function convertToSrt(json) {
@@ -35,7 +53,7 @@ function convertToSrt(json) {
                 currentStart = json.results.items[index + 1].start_time;
             }
         } else if (item.end_time - currentStart > 5 && json.results.items[index - 1]) {
-			previousEndTime = getPreviousEndTime(json, index);
+            previousEndTime = getPreviousEndTime(json, index);
             formattedStart = secondsToMinutes(currentStart);
             formattedEnd = secondsToMinutes(previousEndTime);
             convertedOutput += `${subtitleIndex++}\n`;
