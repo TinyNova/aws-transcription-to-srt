@@ -1,17 +1,10 @@
 const async = require('async');
 
 function getPreviousEndTime(json, index) {
-    const maxLookBehind = 3;
-    let stopAt;
     let i;
     let returnTime = undefined;
-    
-    if(index < maxLookBehind)
-        stopAt = 0;
-    else
-        stopAt = index - maxLookBehind;
-        
-    for(i = index; i > stopAt; i--) {
+   
+    for(i = index; i >= 0; i--) {
         if(json.results.items[i].end_time == undefined)
             continue;
         else
