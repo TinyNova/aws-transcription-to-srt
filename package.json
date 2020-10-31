@@ -1,6 +1,6 @@
 {
   "name": "aws-transcription-to-srt",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Convert AWS transcription JSON to srt",
   "main": "index.js",
   "scripts": {
@@ -23,10 +23,10 @@
   },
   "homepage": "https://github.com/TinyNova/aws-transcription-to-srt#readme",
   "dependencies": {
-    "async": "^2.6.2"
+    "async": "^3.2.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-eslint": "^4.0.2",
     "gulp-mocha": "3.0.1"
   }

@@ -11,7 +11,7 @@ const codeDirs = [
     './index.js'
 ];
 
-function test (target) {
+function test (target, done) {
     return gulp
         .src(target)
         .pipe(mocha({reporter : 'spec', timeout: 200000}))
@@ -23,7 +23,10 @@ function test (target) {
             console.log(error);
             process.exit(1);
         })
-        .once('end', () => process.exit());
+        .once('end', () => {
+            done();
+            process.exit()
+        });
 }
 
 gulp.task('lint', () => {
@@ -34,6 +37,6 @@ gulp.task('lint', () => {
         .pipe(eslint.failAfterError());
 });
 
-gulp.task('test', ['lint'], function () {
-    return test(['./tests/**/*.js']);
-});
+gulp.task('test', gulp.series('lint', function (done) {
+    return test(['./tests/**/*.js'], done);
+}));
